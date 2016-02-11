@@ -1,0 +1,29 @@
+
+<div class="container offset ng-scope" ng-controller="View1Ctrl">
+	<!-- modal -->
+	<ul>
+		<li>
+			<a ng-click="open()">showModal</a>
+		</li>
+	</ul>
+	<script type="text/ng-template" id="myModalContent.html" src="view1/myModalContent.html">
+		<div class="modal-header">
+			<h3 class="modal-title">Im a modal!</h3>
+		</div>
+		<div class="modal-body">
+			<form>
+				<fieldset class="form-group">
+					<label class="sr-only" for="exampleinput">Email</label>
+					<input type="email" class="formcontrol" id="exampleinput" placeholder="Email">
+					<br>
+					<label class="sr-only" for="examplePass">Password</label>
+					<input type="password" id="examplePass" class="formcontrol" placeholder="****">
+				</fieldset>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+			<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+		</div>
+	</script>
+</div>
