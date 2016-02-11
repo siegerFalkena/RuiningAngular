@@ -10,43 +10,12 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="bower_components\angular-bootstrap\ui-bootstrap-csp.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+  <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css">
 
 </head>
 <body>
-  <div class="container-fluid">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span> 
-          </button>
-          <a class="navbar-brand" href="#/view1">Company</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar" >
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#/view1">view1</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a ng-click="open()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-      <![endif]-->
-
-      <div ng-view></div>
-
-      <div>Angular seed app: v<span app-version></span></div>
-    </div>
-
+  
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 -->
@@ -61,6 +30,28 @@
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
+<!-- Open login screen-->
+<div data-ng-controller="core" data-ng-init="open()"></div>
+<script type="text/ng-template" id="myModalContent.html" >
+    <div class="modal-header">
+      <h3 class="modal-title">Please log in</h3>
+    </div>
+    <div class="modal-body">
+      <form>
+        <fieldset class="form-group">
+          <label class="sr-only" for="exampleinput">Email</label>
+          <input type="email" class="formcontrol" id="exampleinput" placeholder="Email@ddress">
+          <br>
+          <label class="sr-only" for="examplePass">Password</label>
+          <input type="password" id="examplePass" class="formcontrol" placeholder="Password">
+        </fieldset>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
 
 </body>
 </html>
