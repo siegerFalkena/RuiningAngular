@@ -20,6 +20,7 @@ angular.module('myApp', [
 
 		var modalInstance = $uibModal.open({
 			animation: $scope.animationsEnabled,
+			backdrop:'static',
 			templateUrl: 'myModalContent.html',
 			controller: 'ModalInstanceCtrl',
 			size: size,
