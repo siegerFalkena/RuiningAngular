@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="concentrator" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="concentrator" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="concentrator" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="concentrator" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login app</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css">
@@ -14,7 +13,21 @@
   <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css">
 
 </head>
-<body>
+<body ng-app="concentrator">
+  <div class="container-fluid">
+    <nav class="navbar navbar-default">
+      <div class="navbar-header"> 
+      </div>
+      <ul class="nav nav-tabs">
+        <li class="presentation"><a href="#/login">login</a></li>
+        <li class="presentation"><a href="#/product">product</a></li>
+        <li class="presentation"><a href="#/overview">overview</a></li>
+      </ul>
+      <div ng-view>
+      <!-- views go here-->
+    </div>
+    </nav>
+  </div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -22,38 +35,12 @@
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="app.js"></script>
-<script src="view1/view1.js"></script>
-<script src="components/version/version.js"></script>
-<script src="components/version/version-directive.js"></script>
-<script src="components/version/interpolate-filter.js"></script>
+<script src="overview/overview.js"></script>
+<script src="login/login.js"></script>
+<script src="product/product.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
-<!-- Open login screen-->
-<div data-ng-controller="core" data-ng-init="open()"></div>
-<script type="text/ng-template" id="myModalContent.html" >
-  <form name="loginForm">
-    <fieldset class="form-group">
-      <div class="modal-header">
-        <h3 class="modal-title">Please log in</h3>
-      </div>
-      <div class="modal-body">
-        <label class="sr-only" for="exampleinput">Email</label>
-        <input type="email" name="email" class="error formcontrol" id="exampleinput" ng-model="email.text" placeholder="Email Address" required>
-        <span class="error" ng-show="loginForm.email.$error.required">Required</span>
-        <span class="error" ng-show="loginForm.email.$error.email">Email format</span>
-        <br>  
-        <label class="sr-only" for="examplePass">Password</label>
-        <input type="password" name="password" id="examplePass" class="error formcontrol" ng-model="password" placeholder="Password" required>
-        <span class="error" ng-show="loginForm.password.$error.required">Required!</span>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-        </div>
-    </fieldset>
-  </form>
-</script>
-
-    </body>
-    </html>
+</body>
+</html>
