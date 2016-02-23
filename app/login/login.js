@@ -32,7 +32,7 @@ angular.module('concentrator.login', ['ngRoute'])
 angular.module('concentrator.login').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
 
   $scope.ok = function () {
-  	loggedIn = true;
+  	$scope.loggedIn = true;
     $uibModalInstance.close();
   };
 

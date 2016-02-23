@@ -3,24 +3,19 @@ angular.module('concentrator.product', ['ngRoute','ui.bootstrap'])
 .config(['$routeProvider', function($routeProvider){
 	$routeProvider.when('/product', {
 		templateUrl: 'product/product.html',
-		controller: 'ProductCtrl'
-	});
+		controller: 'ProductController'
+	}).otherwise({redirectTo: '#/overview'});
 	
 
-}]).controller('ProductCtrl',['$scope', function($scope){
-	var _name = 'product';
-	var _price = 9.99;
-	$scope.name = {
-		name: function(newName){
-			return arguments.length ? (_name=newName) : _name;
-		}
-	}
-
-	$scope.price = {
-		price : function(newPrice){
-			return arguments.length ? (_price=newPrice) : _price;
-		}
-
-	}
+}]).controller('ProductController',['$scope', function($scope){
+	$scope.product = {
+		id: 1,
+		name: 'Boormachine',
+		producent: 'Makita',
+		price: 9.99,
+		stores : [
+			{id: 1, name: 'boormachinewinkel', quantity: 3}
+		]
+	};
 }]);
 
