@@ -1,5 +1,5 @@
 'use strict';
-angular.module('concentrator.login').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
+angular.module('concentrator.login', ['ngCookies']).controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
 
   $scope.ok = function () {
     $scope.loggedIn = true;

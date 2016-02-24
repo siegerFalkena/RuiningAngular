@@ -1,30 +1,42 @@
 'use strict';
+angular.module('concentratorLogin', ['ui.bootstrap', 'ngCookies'])
 
-angular.module('concentrator.login', ['ngRoute']).config(['$routeProvider', function($routeProvider) {
-		$routeProvider.when(
-			'/login', {
-				templateUrl: 'login/login.html',
-				controller: 'LoginModalCtrl'
-			})
-		.otherwise({redirectTo: '/overview'});
-}]).controller('LoginModalCtrl', function($scope, $uibModal, $location) {
-	$scope.open = function (size) {
+.factory('modalService', ['$uibModal', '$cookies', function($uibModal, $cookies) {
 
-    var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: 'myModalContent.html',
-      controller: 'ModalInstanceCtrl',
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
-      
-    });
-  };
-});
+  return {
+    openMenuModal: function(templateLink, windowAnimation) {
 
+        var modalObj = $uibModal.open({
+            templateUrl: templateLink,
+            backdrop: 'static',
+            windowClass: windowAnimation,
+            controller: function($scope,$modalInstance){
+              $scope.ok = function(id){
+                //Process OK Button Click
+                 $modalInstance.close(); 
+              },
+               $scope.cancel = function(){
+                $modalInstance.dismiss('cancel');
+              }
+            },
+            size: 'md',
+            keyboard: true,
+            resolve: {
+              someData: function () {
+                return 'Return some Data';
+              }
+          }
+        });
+    }
+};
+}])
+
+.controller('HomeCtrl', ['$scope','modalService', function($scope, modalService, someData) {
+   $scope.dataFromService = someData;
+   $scope.opentheBook = function(){
+      modalService.openMenuModal('myModalContent.html', 'animated zoomIn');
+    };
+}]);
 
 
 

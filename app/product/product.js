@@ -1,3 +1,4 @@
+'use strict';
 angular.module('concentrator.product', ['ngRoute','ui.bootstrap'])
 
 .config(['$routeProvider', function($routeProvider){

@@ -1,4 +1,4 @@
-<div data-ng-controller="LoginModalCtrl" data-ng-init="open()"></div>
+<div data-ng-init="open()"></div>
 <script type="text/ng-template" id="myModalContent.html" >
   <form name="loginForm">
     <fieldset class="form-group">
@@ -16,7 +16,7 @@
         <span class="error" ng-show="loginForm.password.$error.required">Required!</span>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" type="button" ng-submit="submit()" ng-click="ok()">OK</button>
+          <button class="btn btn-primary" type="button" ng-submit="cancel()" ng-click="ok()">OK</button>
         </div>
     </fieldset>
   </form>

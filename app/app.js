@@ -3,11 +3,9 @@
 // Declare app level module which depends on views, and components
 angular.module('concentrator', [
 	'ngRoute',
-	'ngResource',
-	'ngAnimate',
 	'ngCookies',
 	'concentrator.overview',
-	'concentrator.login',
+	'concentratorLogin',
 	'concentrator.product',
 	'ui.bootstrap'
 	])
