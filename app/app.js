@@ -5,6 +5,7 @@ angular.module('concentrator', [
 	'ngRoute',
 	'ngResource',
 	'ngAnimate',
+	'ngCookies',
 	'concentrator.overview',
 	'concentrator.login',
 	'concentrator.product',
@@ -12,6 +13,13 @@ angular.module('concentrator', [
 	])
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider.otherwise({redirectTo: '/overview'});
+}]).controller('indexController', ['$cookies', '$scope', '$log', function($cookies, $scope, $log){
+	
+	$scope.init = function(){
+		var cookie = $cookies.get('loggedIn');
+		if (cookie === undefined) {
+			$cookies.put('loggedIn', false);
+		}
+	};
+
 }]);
-
-
