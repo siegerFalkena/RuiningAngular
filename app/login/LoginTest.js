@@ -1,6 +1,6 @@
 'use strict';
 describe('concentratorLogin', function(){
-	var $httpBackend, $cookies, $controller, $uibModalInstance, controller;
+	var $httpBackend, $cookies, $controller, $uibModalInstance, controller, authRequestHandler;
 
 	beforeEach(module('concentratorLogin'));
 
@@ -10,6 +10,8 @@ describe('concentratorLogin', function(){
 		$controller = $injector.get('$controller');
 		$httpBackend = $injector.get('$httpBackend');
 		$cookies = $injector.get('$cookies');
+		authRequestHandler = $httpBackend.when('GET', '/login.py').
+                               respond({userId: 'userX'}, {'A-Token': 'xxx'});
 	}));
 
 	it('login', function(){

@@ -26,6 +26,7 @@ describe('indexController', function(){
         $scope.init();
         var cookie = $cookies.get('loggedIn');
         expect(cookie === false);
+        //$httpBackend.flush();
     });
 
 });

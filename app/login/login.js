@@ -10,13 +10,13 @@ angular.module('concentratorLogin', ['ui.bootstrap', 'ngCookies'])
             templateUrl: templateLink,
             backdrop: 'static',
             windowClass: windowAnimation,
-            controller: function($scope,$modalInstance){
+            controller: function($scope,$uibModalInstance){
               $scope.ok = function(id){
                 //Process OK Button Click
-                 $modalInstance.close(); 
+                 $uibModalInstance.close(); 
               },
                $scope.cancel = function(){
-                $modalInstance.dismiss('cancel');
+                $uibModalInstance.dismiss('cancel');
               }
             },
             size: 'md',
