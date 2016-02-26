@@ -1,107 +1,118 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="concentrator" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="concentrator" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="concentrator" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="concentrator" class="no-js"> <!--<![endif]-->
+﻿<!DOCTYPE html>
+<html ng-app="todomvc" data-framework="typescript">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
-  <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css">
-
+    <meta charset="utf-8">
+    <title>angular typescript gulp seed</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.ico" />
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../bower_components/todomvc-common/base.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="../content/styles/main.css">
+    <!-- endbuild -->
+    <style>
+        [ng-cloak] {
+            display: none;
+        }
+    </style>
 </head>
-<body ng-app="concentrator">
-<div data-ng-controller="indexController" data-ng-init="init()"></div>
-  <nav class="navbar navbar-default" role="navigation">
-
-    <div class="navbar-header">
-      <!-- note the ng-init and ng-click here: -->
-      <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="glyphicon glyphicon-menu-hamburger"></span>
-      </button>
-
-    </div>
-
-    <div class="collapse navbar-collapse" uib-collapse="navCollapsed">
-      <ul class="nav navbar-nav">
-        <li><a href="#/overview">Concentrator</a></li>
-        <li><a href = "#/product">product</a></li>
-        <li><a href = "#/overview">overview</a></li>
-      </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="input-group">
-          <input type="text" class="form-control" aria-label="...">
-          <div class="input-group-btn"  uib-dropdown>
-            <button type="button" class="btn btn-default" ng-click="expression">search...</button>
-            <button type="button" class="btn btn-default" aria-haspopup="true" aria-expanded="false" uib-dropdown-toggle>
-             {{radioModel || 'null'}}<span class="caret"></span>
-           </button>
-           <ul uib-dropdown-menu aria-labelledby="single-button">
-            <div class="input-group btn-group btn-group-justified">
-              <li>
-                <label class="btn btn-default active" ng-model="radioModel" uib-btn-radio="'product'" active>product</label>
-              </li>
-              <li>
-                <label class="btn btn-default" ng-model="radioModel" uib-btn-radio="'attribute'">attribute</label>
-              </li>
-              <li>
-                <label class="btn btn-default" ng-model="radioModel" uib-btn-radio="'category'">category</label>
-              </li>
-            </div>
-          </ul>
-        </div><!-- /btn-group -->
-      </div><!-- /input-group -->
-    </form>
-
-  </ul>
-</div>
-</nav>
-
-
-<div ng-view></div>
-
-
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="app.js"></script>
-<script src="overview/overview.js"></script>
-<script src="login/login.js"></script>
-<script src="product/product.js"></script>
-<!--<script src="backEndMock.js"></script> -->
-<script src="bower_components/angular-mocks/angular-mocks.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="bower_components/angular-ui-bootstrap/src/collapse/collapse.js"></script>
-<script src="bower_components/angular-ui-bootstrap/src/buttons/buttons.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script type="text/ng-template" data-ng-controller="HomeCtrl" id="myModalContent.html" >
-  <form name="loginForm">
-    <fieldset class="form-group">
-      <div class="modal-header">
-        <h3 class="modal-title">Please log in</h3>
-      </div>
-      <div class="modal-body">
-        <label class="sr-only" for="exampleinput">Email</label>
-        <input type="email" name="email" class="error formcontrol" id="exampleinput" ng-model="email.text" placeholder="Email Address" required>
-        <span class="error" ng-show="loginForm.email.$error.required">Required</span>
-        <span class="error" ng-show="loginForm.email.$error.email">Email format</span>
-        <br>  
-        <label class="sr-only" for="examplePass">Password</label>
-        <input type="password" name="password" id="examplePass" class="error formcontrol" ng-model="password" placeholder="Password" required>
-        <span class="error" ng-show="loginForm.password.$error.required">Required!</span>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" type="button" ng-submit="cancel()" ng-click="ok()">OK</button>
-        </div>
-    </fieldset>
-  </form>
-</script>
-
+<body>
+    <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <section id="todoapp" ng-controller="todoCtrl">
+        <section id="header">
+            <h1>todos</h1>
+            <form id="todo-form" ng-submit="vm.addTodo()">
+                <input id="new-todo" placeholder="What needs to be done?" ng-model="newTodo" autofocus>
+            </form>
+        </section>
+        <section id="main" ng-show="todos.length" ng-cloak>
+            <input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="vm.markAll(!allChecked)">
+            <label for="toggle-all">Mark all as complete</label>
+            <ul id="todo-list">
+                <li ng-repeat="todo in todos | filter:statusFilter track by $index" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+                    <div class="view">
+                        <input class="toggle" type="checkbox" ng-model="todo.completed">
+                        <label ng-dblclick="vm.editTodo(todo)">{{todo.title}}</label>
+                        <button class="destroy" ng-click="vm.removeTodo(todo)"></button>
+                    </div>
+                    <form ng-submit="vm.doneEditing(todo)">
+                        <input class="edit" ng-model="todo.title" todo-blur="vm.doneEditing(todo)" todo-focus="todo == editedTodo">
+                    </form>
+                </li>
+            </ul>
+        </section>
+        <section id="footer" ng-show="todos.length" ng-cloak>
+            <span id="todo-count">
+                <strong>{{remainingCount}}</strong>
+                <ng-pluralize count="remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+            </span>
+            <ul id="filters">
+                <li>
+                    <a ng-class="{selected: location.path() == '/'} " href="#/">All</a>
+                </li>
+                <li>
+                    <a ng-class="{selected: location.path() == '/active'}" href="#/active">Active</a>
+                </li>
+                <li>
+                    <a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Completed</a>
+                </li>
+            </ul>
+            <button id="clear-completed" ng-click="vm.clearDoneTodos()" ng-show="doneCount">Clear completed ({{doneCount}})</button>
+        </section>
+    </section>
+    <section id="info">
+        <p>Double-click to edit a todo</p>
+        <p>
+            Credits:
+            <a href="http://twitter.com/cburgdorf">Christoph Burgdorf</a>,
+            <a href="http://ericbidelman.com">Eric Bidelman</a>,
+            <a href="http://jacobmumm.com">Jacob Mumm</a>
+            <a href="http://igorminar.com">Igor Minar</a> and
+            <a href="http://zamboch.blogspot.com">Pavel Savara</a>
+        </p>
+    </section>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function (b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l; b[l] || (b[l] =
+            function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
+            e = o.createElement(i); r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X'); ga('send', 'pageview');
+    </script>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/todomvc-common/base.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js scripts/plugins.js -->
+    <script src="../bower_components/bootstrap/js/affix.js"></script>
+    <script src="../bower_components/bootstrap/js/alert.js"></script>
+    <script src="../bower_components/bootstrap/js/dropdown.js"></script>
+    <script src="../bower_components/bootstrap/js/tooltip.js"></script>
+    <script src="../bower_components/bootstrap/js/modal.js"></script>
+    <script src="../bower_components/bootstrap/js/transition.js"></script>
+    <script src="../bower_components/bootstrap/js/button.js"></script>
+    <script src="../bower_components/bootstrap/js/popover.js"></script>
+    <script src="../bower_components/bootstrap/js/carousel.js"></script>
+    <script src="../bower_components/bootstrap/js/scrollspy.js"></script>
+    <script src="../bower_components/bootstrap/js/collapse.js"></script>
+    <script src="../bower_components/bootstrap/js/tab.js"></script>
+    <!-- endbuild -->
+    <!-- build:js scripts/main.js -->
+    <script src="../.tmp/js/app/output.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
