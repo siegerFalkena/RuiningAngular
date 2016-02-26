@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
-var changes = require('gulp-changed');
+var changed = require('gulp-changed');
 
 // load plugins
 var $ = require('gulp-load-plugins')();
@@ -54,6 +54,7 @@ function compileTS(opt) {
 
 gulp.task('html', ['styles', 'scripts:app'], function () {
 	return gulp.src('app/*.html')
+		.pipe(changed('dist'))
 		.pipe($.useref.assets())
 		.pipe($.if('**/*.js', $.uglify()))
 		.pipe($.if('**/*.css', $.csso()))
@@ -65,6 +66,7 @@ gulp.task('html', ['styles', 'scripts:app'], function () {
 
 gulp.task('images', function () {
 	return gulp.src('content/images/**/*')
+		.pipe(changed('dist/images'))
 		.pipe($.cache($.imagemin({
 			optimizationLevel: 3,
 			progressive: true,
@@ -77,6 +79,7 @@ gulp.task('images', function () {
 gulp.task('fonts', function () {
 	return gulp.src(mainBowerFiles())
 		.pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+		.pipe(changed('dist/fonts'))
 		.pipe($.flatten())
 		.pipe(gulp.dest('dist/fonts'))
 		.pipe($.size());
@@ -85,6 +88,7 @@ gulp.task('fonts', function () {
 gulp.task('extras', function () {
 	return gulp.src(
 		['app/*.*', '!app/*.html', '!app/*.ts', '!app/*.config', '!app/*.csproj*'], { dot: true })
+		.pipe(changed('dist'))
 		.pipe(gulp.dest('dist'));
 });
 
